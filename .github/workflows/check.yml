@@ -1,0 +1,26 @@
+name: CI #Имя
+on: push  #когда workflow триггерить
+jobs:  # список задач при push
+  build: # Названия job
+    runs-on: ubuntu-latest # на чем запускается
+    steps: #шаги Actions
+      - name: Checkout # Необязательно
+        uses: actions/checkout@v4 # готовый action, за нас скачает репозиторий
+
+      - name: Install deps # установка зависимостей
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint  #Запуск
+
+      - name: Docker Image Build
+        run: docker build -t practice-docker-example
+
+      - name: Run Container
+        run: docker run -d -p 5000:5000 delivery practice-docker-example
+
+
+
+                           #Все это можно было вписать вручную, но код все сделает за нас
+
+
