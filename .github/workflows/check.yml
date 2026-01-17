@@ -11,7 +11,7 @@ jobs:  # список задач при push
         run: npm install requirements.txt
 
       - name: Lint
-        run: npm run lint  #Запуск
+        run: pip run lint  #Запуск
 
       - name: Docker Image Build
         run: docker build -t practice-docker-example
