@@ -8,7 +8,7 @@ jobs:  # список задач при push
         uses: actions/checkout@v4 # готовый action, за нас скачает репозиторий
 
       - name: Install deps # установка зависимостей
-        run: npm install requirements.txt
+        run: pip install requirements.txt
 
       - name: Lint
         run: pip run lint  #Запуск
